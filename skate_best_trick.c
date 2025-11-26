@@ -39,7 +39,7 @@ pthread_mutex_t mutex_acesso; // O "segurança" da zona crítica
 // Função auxiliar para desenhar a fila
 void desenhar_fila()
 {
-  printf(" | Fila: [ ");
+  printf("\n                                                                        | Fila: [ ");
   for (int i = 0; i < TAMANHO_FILA; i++)
   {
     if (i < count_visual)
@@ -54,7 +54,7 @@ void desenhar_fila()
 void *produtor_skatista(void *arg)
 {
   sleep(2); // Simula os skatistas chegando no evento (dá tempo do Juiz aparecer)
-  char *manobras[] = {"Kickflip", "Crooked Grind", "360 Flip", "Nollie Heel", "Smith Grind"};
+  char *manobras[] = {"Handplant (Invert)", "McTwist", "Method Air", "Kickflip Indy", "Backside Mute 900"};
 
   for (int i = 0; i < NUM_SKATISTAS; i++)
   {
@@ -74,7 +74,7 @@ void *produtor_skatista(void *arg)
     fila_best_trick[indice_entrada] = s;
     count_visual++; // Incrementa visualização
 
-    printf(ANSI_COLOR_GREEN ANSI_BOLD "[+] PRODUTOR:   Skatista %02d entrou na fila! " ANSI_COLOR_RESET "Manobra: %-13s", s.id, s.manobra);
+    printf(ANSI_COLOR_GREEN ANSI_BOLD "[+] PRODUTOR:   Skatista %02d entrou na fila!" ANSI_COLOR_RESET " Manobra: %s", s.id, s.manobra);
     desenhar_fila();
 
     // Lógica circular do buffer
@@ -104,7 +104,7 @@ void *consumidor_obstaculo(void *arg)
     s = fila_best_trick[indice_saida];
     count_visual--; // Decrementa visualização
 
-    printf(ANSI_COLOR_YELLOW ANSI_BOLD "[-] CONSUMIDOR: Juiz liberou %02d!            " ANSI_COLOR_RESET "Manobra: %-13s", s.id, s.manobra);
+    printf(ANSI_COLOR_YELLOW ANSI_BOLD "[-] CONSUMIDOR: Juiz liberou %02d!" ANSI_COLOR_RESET " Manobra: %s", s.id, s.manobra);
     desenhar_fila();
 
     // Lógica circular
@@ -114,7 +114,7 @@ void *consumidor_obstaculo(void *arg)
     // FIM ZONA CRÍTICA
 
     // 4. Processamento (A manobra acontecendo)
-    printf(ANSI_COLOR_CYAN "    >>> [DROP] Skatista %02d descendo o corrimão com %s...\n" ANSI_COLOR_RESET, s.id, s.manobra);
+    printf(ANSI_COLOR_CYAN "    >>> [DROP] Skatista %02d dropou o half e mandou %s...\n" ANSI_COLOR_RESET, s.id, s.manobra);
 
     // 3. Libera a vaga na fila (Signal no semáforo de vagas)
     // Movido para cá para evitar que o Produtor imprima no meio da fala do Juiz

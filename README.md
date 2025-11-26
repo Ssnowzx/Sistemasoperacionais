@@ -1,6 +1,6 @@
 # Projeto: Skate Best Trick Session (Produtor-Consumidor)
 
-Este projeto implementa o clássico problema do **Produtor-Consumidor** utilizando a temática de um campeonato de skate ("Best Trick"). Ele foi desenvolvido para a disciplina de Sistemas Operacionais, demonstrando o uso de **Threads**, **Semáforos** e **Mutexes** em linguagem C.
+Este projeto implementa o clássico problema do **Produtor-Consumidor** utilizando a temática de um campeonato de skate no half-pipe ("Best Trick"). Ele foi desenvolvido para a disciplina de Sistemas Operacionais, demonstrando o uso de **Threads**, **Semáforos** e **Mutexes** em linguagem C.
 
 ## 1. Como Compilar e Rodar
 
@@ -81,10 +81,10 @@ O código utiliza a biblioteca `pthread` para criar threads que rodam concorrent
 
 ## 4. Resumo da Analogia
 
-O sistema funciona como uma **porta giratória controlada** no topo da rampa de skate:
+O sistema funciona como uma **porta giratória controlada** no topo do half-pipe:
 
 1.  **Skatista chega:** Pega uma senha de entrada (Semáforo de Vagas).
 2.  **Entra na área restrita (Mutex):** Coloca o skate na fila e sai.
 3.  **Avisa o Juiz:** Sinaliza que está pronto (Semáforo de Ocupados).
-4.  **Juiz atua:** Vê o sinal, entra na área restrita (Mutex), pega o skatista da vez e libera a descida.
+4.  **Juiz atua:** Vê o sinal, entra na área restrita (Mutex), pega o skatista da vez e libera o drop no half.
 5.  **Ciclo reinicia:** O Juiz avisa que liberou um espaço na fila (Semáforo de Vagas), permitindo que um novo skatista entre.
