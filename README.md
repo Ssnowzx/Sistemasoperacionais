@@ -1,3 +1,16 @@
+### Slides em Imagens
+
+<div align="center">
+    <img src="slides/1.png" width="600" />
+    <img src="slides/2.png" width="600" />
+    <img src="slides/3.png" width="600" />
+    <img src="slides/4.png" width="600" />
+    <img src="slides/5.png" width="600" />
+    <img src="slides/6.png" width="600" />
+    <img src="slides/7.png" width="600" />
+    <img src="slides/8.png" width="600" />
+    <img src="slides/9.png" width="600" />
+</div>
 # Projeto: Skate Best Trick Session (Produtor-Consumidor)
 
 Este projeto implementa o clássico problema do **Produtor-Consumidor** utilizando a temática de um campeonato de skate no half-pipe ("Best Trick"). Ele foi desenvolvido para a disciplina de Sistemas Operacionais, demonstrando o uso de **Threads**, **Semáforos** e **Mutexes** em linguagem C.
@@ -86,3 +99,19 @@ O sistema funciona como uma **porta giratória controlada** no topo do half-pipe
 3.  **Avisa o Juiz:** Sinaliza que está pronto (Semáforo de Ocupados).
 4.  **Juiz atua:** Vê o sinal, entra na área restrita (Mutex), pega o skatista da vez e libera o drop no half.
 5.  **Ciclo reinicia:** O Juiz avisa que liberou um espaço na fila (Semáforo de Vagas), permitindo que um novo skatista entre.
+
+---
+
+## Slides da Apresentação
+
+Os slides da apresentação estão disponíveis na pasta [`slides/`](slides/).
+
+Se houver imagens ou PDF, visualize diretamente:
+
+### Exemplo de imagem:
+
+![Exemplo de Slide](slides/exemplo_slide.png)
+
+### Exemplo de PDF:
+
+[Visualizar Slides (PDF)](slides/apresentacao.pdf)
