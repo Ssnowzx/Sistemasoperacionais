@@ -25,11 +25,9 @@ O projeto conta com um `Makefile` para facilitar a execução.
 
 O projeto atende integralmente às exigências propostas:
 
-| Requisito do Trabalho                                  | Implementação no Código                                                                                                                      | Status      |
-| :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
-| **"Conter pelo menos um buffer com uma zona crítica"** | O array `fila_best_trick` atua como Buffer Circular. O acesso a ele é protegido por `pthread_mutex_lock` e `unlock`, criando a Zona Crítica. | ✅ Atendido |
-| **"Pelo menos um produtor e consumidor"**              | A thread `produtor_skatista` atua como Produtor e a thread `consumidor_obstaculo` atua como Consumidor.                                      | ✅ Atendido |
-| **"A temática será única por grupo"**                  | A temática escolhida foi **Skate Best Trick** (Skatistas vs. Obstáculo/Juiz).                                                                | ✅ Atendido |
+- "Conter pelo menos um buffer com uma zona crítica": Implementado via buffer circular `fila_best_trick` (tamanho 5). O acesso de inserção e remoção é sempre envolto por `pthread_mutex_lock(&mutex_fila)` / `pthread_mutex_unlock(&mutex_fila)`, garantindo exclusão mútua e caracterizando a Zona Crítica.
+- "Pelo menos um produtor e consumidor": A função `produtor_skatista` (thread produtora) insere skatistas com manobras na fila; a função `consumidor_obstaculo` (thread consumidora) retira e processa cada entrada. A coordenação é feita pelos semáforos `sem_vagas` (controle de espaço livre) e `sem_ocupados` (itens disponíveis).
+- "A temática será única por grupo": Tema escolhido: **Skate Best Trick no Half-Pipe**. Mapeamento: Produtor = Skatista que chega com uma manobra; Consumidor = Juiz/Obstáculo que avalia e libera a próxima vaga. A fila representa a ordem de espera no topo do half.
 
 ---
 

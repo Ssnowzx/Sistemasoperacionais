@@ -1,0 +1,14 @@
+# Binário compilado
+skate_session
+
+# Diretório de saídas ou artefatos temporários
+output/
+
+# Arquivos de sistema do macOS
+.DS_Store
+
+# Dumps de memória (se ocorrerem)
+core
+
+# Logs (se futuramente criar)
+*.log
