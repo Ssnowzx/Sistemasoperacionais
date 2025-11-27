@@ -1,5 +1,3 @@
-### Slides em Imagens
-
 # Projeto: Skate Best Trick Session (Produtor-Consumidor)
 
 Este projeto implementa o clássico problema do **Produtor-Consumidor** utilizando a temática de um campeonato de skate no half-pipe ("Best Trick"). Ele foi desenvolvido para a disciplina de Sistemas Operacionais, demonstrando o uso de **Threads**, **Semáforos** e **Mutexes** em linguagem C.
@@ -90,6 +88,8 @@ O sistema funciona como uma **porta giratória controlada** no topo do half-pipe
 5.  **Ciclo reinicia:** O Juiz avisa que liberou um espaço na fila (Semáforo de Vagas), permitindo que um novo skatista entre.
 
 ---
+
+### Slides em Imagens
 
 <div align="center">
     <img src="slides/1.png" width="600" />
